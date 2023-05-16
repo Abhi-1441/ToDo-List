@@ -5,9 +5,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 const _ = require("lodash");
-const { env } = require("process");
-const config = require('./config.js');
-const mongoDBURL = config.mongoDBURL;
+require('dotenv').config()
+const mongoDBURL = process.env.mongoDBURL;
  
 app.set('view engine', 'ejs');
 
@@ -126,5 +125,5 @@ app.get("/about", function (req, res) {
 
 const port = process.env.PORT || 3000
 app.listen(port, function () {
-  console.log(`Server started on port ${port}` );
+  console.log(`Server started on port ${port}`);
 });

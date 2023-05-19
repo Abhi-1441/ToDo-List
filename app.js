@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 const _ = require("lodash");
 require('dotenv').config({path:__dirname+'/.env'});
-// const mongoDBURL = process.env.mongoDBURL;
+const mongoDBURL = process.env.mongoDBURL;
  
 app.set('view engine', 'ejs');
 
@@ -41,6 +41,7 @@ app.use((req, res, next) => {
   }
 });
 app.get("/", function (req, res) {
+  console.log(mongoDBURL);
   dailyList.find()
     .then(foundList => {
       if (foundList.length == 0) {

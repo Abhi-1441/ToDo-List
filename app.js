@@ -31,7 +31,7 @@ const dailyList = mongoose.model('dailyList', itemsSchema);
 const customList = mongoose.model('customLists', customListSchema);
 const firstItem = new dailyList({
   item: "Wake Up Early 🥱"
-});
+}); 
 
 app.use((req, res, next) => {
   if (req.originalUrl === '/favicon.ico') {

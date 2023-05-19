@@ -6,16 +6,14 @@ const mongoose = require("mongoose");
 const app = express();
 const _ = require("lodash");
 require('dotenv').config()
-// const mongoDBURL = process.env.mongoDBURL;
-const name = process.env.admin;
-const pwd = process.env.password;
+const mongoDBURL = process.env.mongoDBURL;
  
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect(`mongodb+srv://${name}:${pwd}@atlascluster.sif4xg3.mongodb.net/todolistDB`);
+mongoose.connect(mongoDBURL);
 const itemsSchema = new mongoose.Schema({
   item: {
     type: String,
